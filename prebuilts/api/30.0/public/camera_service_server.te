@@ -1,1 +1,4 @@
+# Owners are selected by camera_service_server membership. Legacy HAL1
+# assigns mediaserver only when TARGET_HAS_LEGACY_CAMERA_HAL1 is enabled.
+add_service(camera_service_server, cameraserver_service)
 add_hwservice(camera_service_server, fwk_camera_hwservice)

@@ -2,7 +2,15 @@
 binder_call(hal_camera_client, hal_camera_server)
 binder_call(hal_camera_server, hal_camera_client)
 
-hal_attribute_hwservice(hal_camera, hal_camera_hwservice)
+# Isolated HALs and the explicitly selected fused HAL1 provider own registration.
+# The legacy role does not acquire hal_camera_server network/exec restrictions.
+allow hal_camera_client hal_camera_hwservice:hwservice_manager find;
+allow { hal_camera_server legacy_camera_provider } hal_camera_hwservice:hwservice_manager { add find };
+allow { hal_camera_server legacy_camera_provider } hidl_base_hwservice:hwservice_manager add;
+neverallow { domain -hal_camera_server -legacy_camera_provider } hal_camera_hwservice:hwservice_manager add;
+build_test_only(`
+  neverallow { domain -hal_camera_client -hal_camera_server -legacy_camera_provider } hal_camera_hwservice:hwservice_manager find;
+')
 
 allow hal_camera device:dir r_dir_perms;
 allow hal_camera video_device:dir r_dir_perms;
