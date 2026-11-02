@@ -404,3 +404,6 @@ expandattribute dmabuf_heap_device_type false;
 
 # All types used for DSU metadata files.
 attribute gsi_metadata_file_type;
+
+# Legacy HAL1 fused provider; isolated camera HAL restrictions remain unchanged.
+attribute legacy_camera_provider;

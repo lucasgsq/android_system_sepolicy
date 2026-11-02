@@ -1,1 +1,2 @@
+add_service(camera_service_server, cameraserver_service)
 add_hwservice(camera_service_server, fwk_camera_hwservice)
