@@ -268,3 +268,7 @@ init.userspace_reboot.watchdog.timeoutmillis u:object_r:userspace_reboot_config_
 
 # surfaceflinger-settable
 graphics.display.kernel_idle_timer.enabled u:object_r:surfaceflinger_display_prop:s0 exact bool
+
+# Transient result of the read-only Quark USB boot preference reader.
+sys.quark.usb_autoboot_enabled u:object_r:exported_system_prop:s0 exact bool
+sys.quark.usb_autoboot_active u:object_r:exported_system_prop:s0 exact bool
