@@ -1230,3 +1230,7 @@ ro.bootanim.quiescent.enabled u:object_r:bootanim_config_prop:s0 exact bool
 
 # dck properties
 ro.gms.dck.eligible_wcc u:object_r:dck_prop:s0 exact int
+
+# Transient result of the read-only Quark USB boot preference reader.
+sys.quark.usb_autoboot_enabled u:object_r:exported_system_prop:s0 exact bool
+sys.quark.usb_autoboot_active u:object_r:exported_system_prop:s0 exact bool
